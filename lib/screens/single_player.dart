@@ -1,4 +1,6 @@
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:flappybird/game/flappy_bird.dart';
 
 //single player button, opens to a page
 class SinglePlayer extends StatefulWidget {
@@ -10,11 +12,17 @@ class SinglePlayer extends StatefulWidget {
 }
 
 class _SinglePlayerState extends State<SinglePlayer> {
+  late final FlappyBirdGame game;
+
+  @override
+  void initState(){
+    super.initState();
+    game =FlappyBirdGame();
+    runApp(GameWidget(game: game));
+  }
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: Text("gay")
-        );
+    return GameWidget(game: game);
   }
 }
 

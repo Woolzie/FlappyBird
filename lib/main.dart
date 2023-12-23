@@ -1,9 +1,13 @@
 import 'package:flappybird/screens/single_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flappybird/screens/home.dart';
+import 'package:flutter/services.dart';
+import 'package:bonfire/bonfire.dart';
 
-
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Flame.device.setOrientations([DeviceOrientation.landscapeRight,DeviceOrientation.landscapeLeft]);
+  //SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);// to have widgets other than Myapp run first too
   runApp(const MyApp());
 }
 
@@ -14,13 +18,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-      home:  HomePage(),
+      home:   SinglePlayer(), //supposed to be HomePage()
       debugShowCheckedModeBanner: false,
       routes: {
         SinglePlayer.routeName:(context)=> const SinglePlayer(),
         HomePage.routeName:(context)=> const HomePage()
       },
-      initialRoute: HomePage.routeName,
+      initialRoute: SinglePlayer.routeName, // change it to Homepage
     );
   }
 }
