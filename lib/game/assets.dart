@@ -2,6 +2,7 @@ class Assets {
   static const backgroundDay = 'background-day.png';
   static const base = 'base.png';
   static const pipeGreen = 'pipe-green.png';
+  static const pipeGreenRotated = 'pipe-green-rotated.png';
 
   static const blueBirdMidFlap ="bluebird-midflap.png";
   static const blueBirdDownFlap ="bluebird-downflap.png";
