@@ -1,12 +1,13 @@
 import 'package:flappybird/screens/single_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flappybird/screens/home.dart';
-import 'package:flutter/services.dart';
 import 'package:bonfire/bonfire.dart';
+import 'package:flame/flame.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await Flame.device.setOrientations([DeviceOrientation.landscapeRight,DeviceOrientation.landscapeLeft]);
+  await Flame.device.fullScreen();
+  await Flame.device.setLandscape();
   //SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);// to have widgets other than Myapp run first too
   runApp(const MyApp());
 }

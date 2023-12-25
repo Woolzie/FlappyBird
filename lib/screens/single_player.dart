@@ -18,7 +18,7 @@ class _SinglePlayerState extends State<SinglePlayer> {
   void initState(){
     super.initState();
     game =FlappyBirdGame();
-    runApp(GameWidget(game: game));
+    // runApp(GameWidget(game: game)); this code was the problem lol
   }
   @override
   Widget build(BuildContext context) {
