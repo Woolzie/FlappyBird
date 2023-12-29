@@ -2,6 +2,8 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flappybird/game/flappy_bird.dart';
 
+import 'beginning_overlay.dart';
+
 //single player button, opens to a page
 class SinglePlayer extends StatefulWidget {
   static String routeName= '/single-player';
@@ -22,7 +24,12 @@ class _SinglePlayerState extends State<SinglePlayer> {
   }
   @override
   Widget build(BuildContext context) {
-    return GameWidget(game: game);
+    return GameWidget(game: game,
+    initialActiveOverlays: const [CustomOverlay.id],
+    overlayBuilderMap: {
+      'Overlay': (context,_) => CustomOverlay(game: game)
+    },
+    );
   }
 }
 

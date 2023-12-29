@@ -8,6 +8,6 @@ class Assets {
   static const blueBirdDownFlap ="bluebird-downflap.png";
   static const blueBirdUpFlap ="bluebird-upflap.png";
 
-  static const gameOver = "gameover.png";
-  static const message = "message.png";
+  static const gameOver = 'gameover.png';
+  static const message = 'message.png';
 }
