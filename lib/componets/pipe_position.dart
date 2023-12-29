@@ -34,6 +34,7 @@ class Pipe extends SpriteComponent with HasGameRef<FlappyBirdGame>{
         sprite = Sprite(pipe);
         break;
     }
+    add(RectangleHitbox());
   }
 
 }
