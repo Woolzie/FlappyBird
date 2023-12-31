@@ -5,6 +5,7 @@ import 'package:flappybird/game/flappy_bird.dart';
 import 'package:flutter/animation.dart';
 
 import '../game/assets.dart';
+import '../screens/gameOver.dart';
 
 enum BirdMovement {middle, up, down}
 
@@ -18,7 +19,7 @@ CollisionCallbacks {
     final birdUpFlap = await gameRef.loadSprite(Assets.blueBirdUpFlap);
     final birdDownFlap = await gameRef.loadSprite(Assets.blueBirdDownFlap);
 
-    size = Vector2(35, 30);
+    size = Vector2(gameRef.size.y/14, gameRef.size.y/14);
     position = Vector2(50, gameRef.size.y/2 - size.y/2);
     current = BirdMovement.middle;
     sprites ={
@@ -51,12 +52,15 @@ CollisionCallbacks {
 
   void gameOver(){
     gameRef.pauseEngine();
+    gameRef.overlays.add('gameOver');
   }
 
   @override
   void update(double dt){
     super.update(dt);
     position.y += Config.birdVelocity * dt;
-
+    if(position.y<0){
+      gameOver();
+    }
   }
 }

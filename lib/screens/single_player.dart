@@ -1,4 +1,5 @@
 import 'package:flame/game.dart';
+import 'package:flappybird/screens/gameOver.dart';
 import 'package:flutter/material.dart';
 import 'package:flappybird/game/flappy_bird.dart';
 
@@ -24,10 +25,12 @@ class _SinglePlayerState extends State<SinglePlayer> {
   }
   @override
   Widget build(BuildContext context) {
+    game.pauseWhenBackgrounded;
     return GameWidget(game: game,
     initialActiveOverlays: const [CustomOverlay.id],
     overlayBuilderMap: {
-      'Overlay': (context,_) => CustomOverlay(game: game)
+      'Overlay': (context,_) => CustomOverlay(game: game),
+      'gameOver': (context,_) => GameOver(game:game)
     },
     );
   }
