@@ -42,7 +42,7 @@ late TextComponent score;
       position: Vector2(size.x/2,size.y/2*0.2),
       anchor: Anchor.center,
       textRenderer: TextPaint(
-        style: const TextStyle(fontSize: 40, fontFamily: 'Game',fontWeight: FontWeight.bold),
+        style: const TextStyle(fontSize: 40, fontFamily: 'Game',fontWeight: FontWeight.bold, color: Colors.white70, ),
       )
     );
   }

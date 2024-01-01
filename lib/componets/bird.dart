@@ -7,6 +7,9 @@ import 'package:flutter/animation.dart';
 import '../game/assets.dart';
 enum BirdMovement {middle, up, down}
 
+//TODO: make sprite animation of flapping and control the angle of the bird
+
+// TODO: fix the bird speed lmao that shits annoying asf, specifically for co -op for a longer gameplay
 class Bird extends SpriteGroupComponent<BirdMovement> with HasGameRef<FlappyBirdGame>,
 CollisionCallbacks {
   Bird();
@@ -31,11 +34,11 @@ CollisionCallbacks {
   }
 
   void fly(){
-    time=0;
+    time=0.0070;
     add(
       MoveByEffect(
           Vector2(0,Config.gravity),
-          EffectController(duration: 3.5, curve: Curves.easeIn),
+          EffectController(duration: 2.0, curve: Curves.easeIn),
           onComplete: () => current = BirdMovement.down,
 
       )
@@ -70,6 +73,6 @@ CollisionCallbacks {
   void reset(){
     position = Vector2(50, gameRef.size.y/2 - size.y/2);
     time =0;
-
+    score =0;
   }
 }

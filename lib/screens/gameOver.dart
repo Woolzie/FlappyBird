@@ -10,14 +10,29 @@ class GameOver extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return Scaffold(
-      body: GestureDetector(
-        onTap: (){game.bird.reset();game.overlays.remove('gameOver');game.resumeEngine();},
-        child: Container(
+      body: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(image: DecorationImage(image:Image.asset('assets/images/gameover.png').image)),
+        child:  Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset('assets/images/gameover.png'),
+            const SizedBox(height: 20,),
+            Text('Score: ${game.bird.score}'),
+            const SizedBox(height: 100),
+            ElevatedButton(onPressed: (){game.bird.reset();game.overlays.remove('gameOver');game.resumeEngine();},
+            style: ButtonStyle(
+              backgroundColor:  MaterialStateProperty.all<Color>(Colors.orangeAccent
+            ),),
+              child: const Text(
+              'New Game',
+              style: TextStyle(fontFamily: 'Game', color: Colors.white70),
+            ),
+            ),
+            //TODO:  ADD THE GESTURE DETECTOR IN A SIZED BOX
+          ],
         ),
-      ),
+        ),
 
     );
   }
