@@ -17,7 +17,7 @@ class CustomOverlay extends StatelessWidget {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          color: Theme.of(context).colorScheme.background,
+          //color: Theme.of(context).colorScheme.background,
           child: Image.asset('assets/images/message.png'),
 
         ),

@@ -5,13 +5,13 @@ import 'package:flappybird/game/flappy_bird.dart';
 import 'package:flutter/animation.dart';
 
 import '../game/assets.dart';
-import '../screens/gameOver.dart';
-
 enum BirdMovement {middle, up, down}
 
 class Bird extends SpriteGroupComponent<BirdMovement> with HasGameRef<FlappyBirdGame>,
 CollisionCallbacks {
   Bird();
+  num time=0;
+  int score=0;
 
   @override
   Future<void> onLoad() async{
@@ -19,7 +19,7 @@ CollisionCallbacks {
     final birdUpFlap = await gameRef.loadSprite(Assets.blueBirdUpFlap);
     final birdDownFlap = await gameRef.loadSprite(Assets.blueBirdDownFlap);
 
-    size = Vector2(gameRef.size.y/14, gameRef.size.y/14);
+    size = Vector2(gameRef.size.y/13, gameRef.size.y/13);
     position = Vector2(50, gameRef.size.y/2 - size.y/2);
     current = BirdMovement.middle;
     sprites ={
@@ -31,11 +31,13 @@ CollisionCallbacks {
   }
 
   void fly(){
+    time=0;
     add(
       MoveByEffect(
           Vector2(0,Config.gravity),
-          EffectController(duration: 0.2, curve: Curves.decelerate),
+          EffectController(duration: 3.5, curve: Curves.easeIn),
           onComplete: () => current = BirdMovement.down,
+
       )
     );
     current = BirdMovement.up;
@@ -52,15 +54,22 @@ CollisionCallbacks {
 
   void gameOver(){
     gameRef.pauseEngine();
+    game.isHit =true;
     gameRef.overlays.add('gameOver');
   }
 
   @override
   void update(double dt){
     super.update(dt);
-    position.y += Config.birdVelocity * dt;
+    time=time+0.0095;
+    position.y += -(Config.gravity *time*time); // makes it go down?
     if(position.y<0){
       gameOver();
     }
+  }
+  void reset(){
+    position = Vector2(50, gameRef.size.y/2 - size.y/2);
+    time =0;
+
   }
 }

@@ -11,7 +11,7 @@ class GameOver extends StatelessWidget {
   Widget build(BuildContext context) {
      return Scaffold(
       body: GestureDetector(
-        onTap: (){game.overlays.remove('gameOver');game.resumeEngine();},
+        onTap: (){game.bird.reset();game.overlays.remove('gameOver');game.resumeEngine();},
         child: Container(
           height: double.infinity,
           width: double.infinity,
