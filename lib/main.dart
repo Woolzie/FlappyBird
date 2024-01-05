@@ -1,3 +1,4 @@
+import 'package:flappybird/screens/co_op.dart';
 import 'package:flappybird/screens/single_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flappybird/screens/home.dart';
@@ -19,13 +20,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-      home:   SinglePlayer(), //supposed to be HomePage()
+      home:  HomePage(), //supposed to be HomePage()
       debugShowCheckedModeBanner: false,
       routes: {
         SinglePlayer.routeName:(context)=> const SinglePlayer(),
-        HomePage.routeName:(context)=> const HomePage()
+        HomePage.routeName:(context)=> const HomePage(),
+        Co_Op.routeName:(context)=>  Co_Op()
       },
-      initialRoute: SinglePlayer.routeName, // change it to Homepage
+      initialRoute: HomePage.routeName, // change it to Homepage
     );
   }
 }

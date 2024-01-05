@@ -10,4 +10,9 @@ class Assets {
 
   static const gameOver = 'gameover.png';
   static const message = 'message.png';
+
+  static const fly = 'swoosh.ogg';
+  static const die = 'die.ogg';
+  static const point = 'point.wav';
+  static const hit = 'hit.ogg';
 }

@@ -7,11 +7,12 @@ class CustomOverlay extends StatelessWidget {
   static const String id='Overlay';
 
   const CustomOverlay({super.key, required this.game});
+  @override
 
   @override
   Widget build(BuildContext context) {
-    game.pauseEngine();
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: GestureDetector(
         onTap: (){game.overlays.remove('Overlay');game.resumeEngine();},
         child: Container(

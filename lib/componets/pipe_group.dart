@@ -1,7 +1,9 @@
 import 'dart:math';
 import 'package:flame/components.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flappybird/componets/config.dart';
 import 'package:flappybird/componets/pipe_position.dart';
+import 'package:flappybird/game/assets.dart';
 import 'package:flappybird/game/flappy_bird.dart';
 
 class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame>{
@@ -39,6 +41,7 @@ class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame>{
   // make height dynamic later
   void updateScore(){
     gameRef.bird.score += 1;
+    FlameAudio.play(Assets.point);
   }
 
 }

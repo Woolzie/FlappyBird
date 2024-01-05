@@ -1,5 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flame/components.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flappybird/componets/config.dart';
 import 'package:flappybird/game/flappy_bird.dart';
 import 'package:flutter/animation.dart';
@@ -15,7 +16,7 @@ CollisionCallbacks {
   Bird();
   num time=0;
   int score=0;
-
+  double speed =0.0;
   @override
   Future<void> onLoad() async{
     final birdMidFlap = await gameRef.loadSprite(Assets.blueBirdMidFlap);
@@ -32,17 +33,21 @@ CollisionCallbacks {
     };
     add(CircleHitbox());
   }
+  
 
   void fly(){
-    time=0.0070;
+   time =0;
+   // remove move by effect and make time have a negative value so that it will move up ?
+   
     add(
       MoveByEffect(
           Vector2(0,Config.gravity),
-          EffectController(duration: 2.0, curve: Curves.easeIn),
+          EffectController(duration: 1.0, curve: Curves.easeIn),
           onComplete: () => current = BirdMovement.down,
 
       )
     );
+    FlameAudio.play(Assets.fly);
     current = BirdMovement.up;
   }
 
@@ -52,6 +57,7 @@ CollisionCallbacks {
       PositionComponent other,
       ){
     super.onCollisionStart(intersectionPoints, other);
+    FlameAudio.play(Assets.hit);
   gameOver();
   }
 

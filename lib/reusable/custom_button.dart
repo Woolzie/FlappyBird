@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({Key? key, required this.text, required this.onTap}):super(key: key);
@@ -9,9 +8,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    return  Animate(
-      effects: [FadeEffect(begin: 0.1,end: 1, duration: 300.ms, delay:700.ms),SlideEffect(duration: 400.ms)],
-      child: Container(
+    return   Container(
         decoration: const BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -24,7 +21,7 @@ class CustomButton extends StatelessWidget {
 
           style: ElevatedButton.styleFrom(
               minimumSize:  Size(width, 50),
-
+              backgroundColor: Colors.brown,
               shape:const RoundedRectangleBorder(
                   borderRadius: BorderRadius.zero
               )
@@ -37,7 +34,6 @@ class CustomButton extends StatelessWidget {
           )
           ),
         ),
-      ),
-    );
+      );
   }
 }

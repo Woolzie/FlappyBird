@@ -10,6 +10,7 @@ class GameOver extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return Scaffold(
+       backgroundColor: Colors.transparent,
       body: Container(
           height: double.infinity,
           width: double.infinity,
