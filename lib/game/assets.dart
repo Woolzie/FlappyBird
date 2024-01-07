@@ -15,4 +15,5 @@ class Assets {
   static const die = 'die.ogg';
   static const point = 'point.wav';
   static const hit = 'hit.ogg';
+  static const menuemusic = 'undertale_dogsong.mp3';
 }

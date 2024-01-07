@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
-import 'package:flappybird/componets/background.dart';
-import 'package:flappybird/componets/pipe_group.dart';
-
-import '../componets/bird.dart';
+import '../components2/background2.dart';
+import '../components2/bird2.dart';
+import '../components2/ground2.dart';
+import '../components2/pipe_group2.dart';
 import '../componets/config.dart';
-import '../componets/ground.dart';
 
 class FlappyBirdGame2 extends FlameGame with TapDetector, HasCollisionDetection{
-  late Bird bird1;
-  late Bird bird2;
+  late Bird2 bird1;
+  late Bird2 bird2;
   Timer interval = Timer(Config.pipeInterval, repeat:true);
   bool isHit=false;
   late TextComponent score;
@@ -21,14 +20,14 @@ class FlappyBirdGame2 extends FlameGame with TapDetector, HasCollisionDetection{
   Future <void> onLoad() async {
     addAll([
       Background(),
-      Ground(),
+      Ground2(),
       // the colours are same for now
-      bird1 = Bird(x_position: 50),
-      bird2= Bird(x_position: 90),
+      bird1 = Bird2(x_position: 50, frame: 21),
+      bird2= Bird2(x_position: 90, frame: 0),
       score = buildscore()
     ]
     );
-    interval.onTick = () => add(PipeGroup());
+    interval.onTick = () => add(PipeGroup2());
   }
 
 

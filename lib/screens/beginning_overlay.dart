@@ -12,7 +12,7 @@ class CustomOverlay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.lightGreen,
       body: GestureDetector(
         onTap: (){game.overlays.remove('Overlay');game.resumeEngine();},
         child: Container(
