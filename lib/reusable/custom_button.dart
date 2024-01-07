@@ -9,29 +9,26 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return   Container(
-        decoration: const BoxDecoration(
-            boxShadow: [
-              BoxShadow(
+        child: Center(
+          child: ElevatedButton(onPressed: onTap ,
+            style: ElevatedButton.styleFrom(
+                minimumSize:  Size(width*0.7, 50),
+                backgroundColor: Colors.brown[800],
+                side: const BorderSide(
                   color: Colors.yellow,
-                  blurRadius: 5
-              )
-            ]
-        ),
-        child: ElevatedButton(onPressed: onTap ,
+                  width: 3.0,
+                ),
+                shape:const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.zero,
+                )
+            ),
+            child:  Text(text,style: TextStyle(
+              color: Colors.yellow[200]?.withOpacity(1),
+              wordSpacing: 15,
+              letterSpacing: 5,
 
-          style: ElevatedButton.styleFrom(
-              minimumSize:  Size(width, 50),
-              backgroundColor: Colors.brown,
-              shape:const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.zero
-              )
-          ),
-          child:  Text(text,style: TextStyle(
-            color: Colors.white70.withOpacity(1),
-            wordSpacing: 15,
-            letterSpacing: 5,
-
-          )
+            )
+            ),
           ),
         ),
       );

@@ -20,12 +20,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-      home:  HomePage(), //supposed to be HomePage()
+      home: const HomePage(), //supposed to be HomePage()
       debugShowCheckedModeBanner: false,
       routes: {
         SinglePlayer.routeName:(context)=> const SinglePlayer(),
         HomePage.routeName:(context)=> const HomePage(),
-        Co_Op.routeName:(context)=>  Co_Op()
+        Co_Op.routeName:(context)=> const Co_Op()
       },
       initialRoute: HomePage.routeName, // change it to Homepage
     );
