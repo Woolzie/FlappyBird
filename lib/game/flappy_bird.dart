@@ -22,10 +22,10 @@ late TextComponent score;
   @override
   Future <void> onLoad() async {
     addAll([
-      score = buildscore(),
       Background(),
       Ground(),
-      bird = Bird()
+      bird = Bird(),
+      score = buildscore(),
       ]
     );
     interval.onTick = () => add(PipeGroup());

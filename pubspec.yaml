@@ -38,8 +38,9 @@ dependencies:
   flutter_animate: ^4.3.0
   flame: ^1.11.0
   bonfire: ^3.1.1
-  flame_audio: ^2.1.6
-  just_audio: ^0.9.36
+  flame_audio: ^2.1.7
+  audioplayers: ^5.2.1
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:

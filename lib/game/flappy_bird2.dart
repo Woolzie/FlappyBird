@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:bonfire/bonfire.dart';
-import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import '../components2/background2.dart';
 import '../components2/bird2.dart';
@@ -9,7 +8,7 @@ import '../components2/ground2.dart';
 import '../components2/pipe_group2.dart';
 import '../componets/config.dart';
 
-class FlappyBirdGame2 extends FlameGame with TapDetector, HasCollisionDetection{
+class FlappyBirdGame2 extends FlameGame with  HasCollisionDetection{
   late Bird2 bird1;
   late Bird2 bird2;
   Timer interval = Timer(Config.pipeInterval, repeat:true);
@@ -31,11 +30,6 @@ class FlappyBirdGame2 extends FlameGame with TapDetector, HasCollisionDetection{
   }
 
 
-  @override
-  void onTap(){
-    super.onTap();
-    bird2.fly();
-  }
 
   TextComponent buildscore(){
     return TextComponent(
