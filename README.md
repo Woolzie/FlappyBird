@@ -1,5 +1,4 @@
-# flappybird
+# FlappyBird
 
-flappy berb on flutter
+Flappy Bird built using flutters Flame engine
 
-## YAAAAAY
