@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flappybird/reusable/custom_button.dart';
 import 'package:flappybird/screens/co_op.dart';
+import 'package:flappybird/screens/music_control.dart';
 import 'package:flappybird/screens/single_player.dart';
 import 'package:flutter/material.dart';
 
@@ -18,8 +19,6 @@ bool isPressed = true;
 class _HomePageState extends State<HomePage> {
 
   late Icon icon;
-  final player = AudioPlayer();
-
   void singlePlayer(BuildContext context){
     Navigator.pushNamed(context, SinglePlayer.routeName);
   }
@@ -31,7 +30,6 @@ class _HomePageState extends State<HomePage> {
   void initState(){
     super.initState();
    // AudioCache.instance = AudioCache(prefix:'');
-    player.setSource(AssetSource('audio/undertale_dogsong.mp3'));
   }
 
   @override
@@ -43,21 +41,8 @@ class _HomePageState extends State<HomePage> {
           children: [
               Positioned(
                 top: 10,
-                left: 10,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.brown[700],
-                    shape:  RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                  ),),
-                  child:  Icon(isPressed? Icons.music_off: Icons.music_note),
-                  onPressed: () {
-                    setState(() {
-                      isPressed=!isPressed;
-                      _toggleMute();
-                    });
-                  },
-                ),
+                right: 10,
+                child: MusicControlButton(),
               ),
 
                   Column(
@@ -131,11 +116,4 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
     }
 
-  void _toggleMute()  {
-    if (isPressed) {
-      player.pause();
-    } else {
-      player.resume(); // Mute
-    }
-  }
 }

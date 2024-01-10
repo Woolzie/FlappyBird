@@ -1,16 +1,22 @@
+import 'package:flappybird/provider/audio_provider.dart';
 import 'package:flappybird/screens/co_op.dart';
 import 'package:flappybird/screens/single_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flappybird/screens/home.dart';
 import 'package:bonfire/bonfire.dart';
 import 'package:flame/flame.dart';
+import 'package:provider/provider.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Flame.device.fullScreen();
   await Flame.device.setLandscape();
   //SystemChrome.setPreferredOrientations([DeviceOrientation.landscapeLeft,DeviceOrientation.landscapeRight]);// to have widgets other than Myapp run first too
-  runApp(const MyApp());
+  runApp(
+      ChangeNotifierProvider(
+          create: (context) => AudioPlayerProvider(),
+          child:const MyApp()),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -23,7 +29,7 @@ class MyApp extends StatelessWidget {
       home:  HomePage(), //supposed to be HomePage()
       debugShowCheckedModeBanner: false,
       routes: {
-        SinglePlayer.routeName:(context)=> const SinglePlayer(),
+        SinglePlayer.routeName:(context)=> SinglePlayer(),
         HomePage.routeName:(context)=> HomePage(),
         Co_Op.routeName:(context)=> const Co_Op()
       },

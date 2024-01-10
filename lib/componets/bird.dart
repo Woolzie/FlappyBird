@@ -3,7 +3,6 @@ import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flappybird/componets/config.dart';
 import 'package:flappybird/game/flappy_bird.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../game/assets.dart';
 enum BirdMovement {middle, up, down}
@@ -56,6 +55,7 @@ CollisionCallbacks {
     gameRef.pauseEngine();
     game.isHit =true;
     speed =0;
+    Future.delayed(Duration(seconds: 1), () {});
     gameRef.overlays.add('gameOver');
   }
 
