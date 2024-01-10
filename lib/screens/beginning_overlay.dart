@@ -16,15 +16,18 @@ class CustomOverlay extends StatelessWidget {
       body:  GestureDetector(
           onTap: (){game.overlays.remove('Overlay');game.resumeEngine();},
           child: Container(
+            width: double.infinity,
+            height: double.infinity,
             alignment: Alignment.center,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(Assets.backgroundDay),
+                  image: AssetImage('assets/images/background-day.png'),
                   fit: BoxFit.cover,
                 )
             ),
             // why tf is this not working
-            child: Container(width: 80,height: 80,child: Image.asset('assets/images/message.png')),
+            child: Container(
+                width: 200,height: 200,child: Image.asset('assets/images/message.png')),
       
           ),
         ),

@@ -48,6 +48,7 @@ CollisionCallbacks {
       ){
     super.onCollisionStart(intersectionPoints, other);
     FlameAudio.play(Assets.hit);
+    
   gameOver();
   }
 
@@ -55,7 +56,10 @@ CollisionCallbacks {
     gameRef.pauseEngine();
     game.isHit =true;
     speed =0;
-    Future.delayed(Duration(seconds: 1), () {});
+    Future.delayed(Duration(milliseconds: 150),()=>overlay());
+  }
+
+  void overlay(){
     gameRef.overlays.add('gameOver');
   }
 

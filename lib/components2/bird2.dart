@@ -2,15 +2,14 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flappybird/componets/config.dart';
-import 'package:flappybird/game/flappy_bird2.dart';
 import '../game/assets.dart';
-import '../game/flappy_bird.dart';
+import 'flappy2.dart';
 enum BirdMovement {middle, up, down}
 enum BirdColour {red, yellow}
 
 //TODO: make sprite animation of flapping and control the angle of the bird
 
-class Bird2 extends SpriteGroupComponent<BirdMovement> with HasGameRef<FlappyBirdGame>,
+class Bird2 extends SpriteGroupComponent<BirdMovement> with HasGameRef<Flappy2>,
     CollisionCallbacks {
   Bird2({required this.x_position, required this.frame});
   num time=0;

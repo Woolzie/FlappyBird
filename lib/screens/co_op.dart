@@ -2,7 +2,7 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
-import '../game/flappy_bird2.dart';
+import '../components2/flappy2.dart';
 
 class Co_Op extends StatefulWidget {
    const Co_Op({super.key});
@@ -13,16 +13,16 @@ class Co_Op extends StatefulWidget {
 }
 
 class _Co_OpState extends State<Co_Op> {
-   late final FlappyBirdGame2 game2;
+   late final Flappy2 game;
 
    @override
    void initState() {
      super.initState();
-     game2 = FlappyBirdGame2();
+     game = Flappy2();
    }
 
   @override
   Widget build(BuildContext context) {
-    return GameWidget(game: game2);
+    return GameWidget(game: game);
   }
 }

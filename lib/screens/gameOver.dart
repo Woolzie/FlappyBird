@@ -19,7 +19,7 @@ class GameOver extends StatelessWidget {
           children: <Widget>[
             Image.asset('assets/images/gameover.png'),
             const SizedBox(height: 20,),
-            Text('Score: ${game.bird.score}'),
+            Text('Score: ${game.bird.score}', style: TextStyle( fontFamily: 'Game', fontSize: 30),),
             const SizedBox(height: 100),
             ElevatedButton(onPressed: (){game.bird.reset();game.overlays.remove('gameOver');game.resumeEngine();},
             style: ButtonStyle(

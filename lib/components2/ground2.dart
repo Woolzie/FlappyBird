@@ -5,9 +5,9 @@ import 'package:flappybird/componets/config.dart';
 
 
 import '../game/assets.dart';
-import '../game/flappy_bird2.dart';
+import 'flappy2.dart';
 
-class Ground2 extends ParallaxComponent<FlappyBirdGame2> with HasGameRef<FlappyBirdGame2>{
+class Ground2 extends ParallaxComponent<Flappy2> with HasGameRef<Flappy2>{
   Ground2();
 
   @override

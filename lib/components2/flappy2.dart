@@ -31,4 +31,7 @@ class Flappy2 extends FlappyBirdGame{
     // Render your game elements here
     super.render(canvas);
   }
+  @override
+  void onTap(){}
+
 }

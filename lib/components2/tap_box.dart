@@ -1,11 +1,11 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
-import 'package:flappybird/game/flappy_bird2.dart';
+import 'package:flappybird/components2/flappy2.dart';
 
 import '../game/assets.dart';
 
-class TapBox extends SpriteComponent with HasGameRef<FlappyBirdGame2>{
+class TapBox extends SpriteComponent with HasGameRef<Flappy2>{
 
   late bool isLeft;
   late Vector2 dimension;
