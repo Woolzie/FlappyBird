@@ -10,16 +10,19 @@ import '../componets/ground.dart';
 import '../componets/pipe_group.dart';
 
 class Flappy2 extends FlappyBirdGame{
+  late TapBox box1= TapBox(isLeft: true);
+  late TapBox box2=TapBox(isLeft: false);
   late Bird2 bird1;
   late Bird2 bird2;
 
   @override
   Future <void> onLoad() async {
+
     addAll([
       Background(),
       Ground(),
-      TapBox(isLeft: true),
-      TapBox(isLeft: false),
+      box1,
+      box2,
       bird = Bird(),
       score = buildscore(),
     ]

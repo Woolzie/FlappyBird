@@ -1,24 +1,27 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flame/components.dart';
-import 'package:flame/events.dart';
-import 'package:flappybird/components2/flappy2.dart';
-
+import 'package:flappybird/componets/config.dart';
+import 'flappy2.dart';
+import 'package:flappybird/game/flappy_bird.dart';
 import '../game/assets.dart';
 
 class TapBox extends SpriteComponent with HasGameRef<Flappy2>{
 
   late bool isLeft;
   late Vector2 dimension;
-TapBox({required this.isLeft}){
-  width = 80.0;
-  height=83.0;
-}
+  late double widthbox, heightbox;
+TapBox({required this.isLeft});
+
+@override
   Future<void> onLoad() async{
+    widthbox = gameRef.size.x/8;
+    heightbox=Config.groundHeight;
     final box =  await Flame.images.load(Assets.tap);
+    position.y= gameRef.size.y-heightbox;
     if(isLeft){
-      dimension =   Vector2(gameRef.size.y-height, width);
+      position.x=0;
     }
-    else{dimension=Vector2(gameRef.size.y-height, gameRef.size.x-width);}
-    sprite= Sprite(box, srcPosition: dimension);
+    else{position.x=gameRef.size.x-widthbox;}
+    sprite= Sprite(box, srcSize: Vector2(widthbox, heightbox));
   }
 }

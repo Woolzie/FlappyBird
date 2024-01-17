@@ -9,7 +9,7 @@ enum BirdMovement {middle, up, down}
 enum BirdColour {red, yellow}
 
 //TODO: make sprite animation of flapping and control the angle of the bird
-
+//this is a small change
 // TODO: fix the bird speed lmao that shits annoying asf, specifically for co -op for a longer gameplay
 class Bird extends SpriteGroupComponent<BirdMovement> with HasGameRef<FlappyBirdGame>,
 CollisionCallbacks {
@@ -62,15 +62,22 @@ CollisionCallbacks {
   void overlay(){
     gameRef.overlays.add('gameOver');
   }
+  void down(){
+
+  }
 
   @override
   void update(double dt){
     super.update(dt);
     speed += Config.gravity*dt;
     position.y += speed*dt; // makes it go down?
-    if(position.y<0){
-      gameOver();
-    }
+    // if(position.y==()){
+    //
+    // }
+    //
+    // if(position.y<=0){
+    //
+    // }
     // anchor=Anchor.bottomLeft;
     // angle=speed/1000;
     k+=1;

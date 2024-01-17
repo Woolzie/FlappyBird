@@ -1,5 +1,4 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flame_audio/flame_audio.dart';
 import 'package:flappybird/reusable/custom_button.dart';
 import 'package:flappybird/screens/co_op.dart';
 import 'package:flappybird/screens/music_control.dart';
@@ -82,8 +81,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       const SizedBox(height: 40),
-                      // CustomButton(
-                      //     text: "Co-op Mode", onTap: () => coopPlayer(context)),
+                      CustomButton(
+                          text: "Co-op Mode", onTap: () => coopPlayer(context)),
                       SizedBox(height: 40,),
                       SizedBox(
                         height: 30,

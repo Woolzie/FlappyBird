@@ -15,6 +15,7 @@ void main() async{
   runApp(
       ChangeNotifierProvider(
           create: (context) => AudioPlayerProvider(),
+
           child:const MyApp()),
   );
 }
