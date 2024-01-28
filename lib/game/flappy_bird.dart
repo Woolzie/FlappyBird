@@ -14,7 +14,7 @@ import '../componets/config.dart';
 import '../componets/ground.dart';
 
 class FlappyBirdGame extends FlameGame with TapDetector, HasCollisionDetection{
-  late Bird bird;
+  late Bird bird= Bird();
   Timer interval = Timer(Config.pipeInterval, repeat:true);
 bool isHit=false;
 late TextComponent score;
@@ -24,7 +24,7 @@ late TextComponent score;
     addAll([
       Background(),
       Ground(),
-      bird = Bird(),
+      bird,
       score = buildscore(),
       ]
     );

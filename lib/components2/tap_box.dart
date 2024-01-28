@@ -1,11 +1,11 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 import 'package:flappybird/componets/config.dart';
 import 'flappy2.dart';
-import 'package:flappybird/game/flappy_bird.dart';
 import '../game/assets.dart';
 
-class TapBox extends SpriteComponent with HasGameRef<Flappy2>{
+class TapBox extends SpriteComponent with HasGameRef<Flappy2>, TapCallbacks{
 
   late bool isLeft;
   late Vector2 dimension;
@@ -22,6 +22,18 @@ TapBox({required this.isLeft});
       position.x=0;
     }
     else{position.x=gameRef.size.x-widthbox;}
-    sprite= Sprite(box, srcSize: Vector2(widthbox, heightbox));
+    size =  Vector2(widthbox, heightbox);
+    sprite= Sprite(box);
   }
-}
+
+    @override
+    void onTapDown(TapDownEvent event){
+      if(isLeft){
+        gameRef.bird2.fly();
+
+      }
+      else{
+        gameRef.bird1.fly();
+      }
+         }
+    }

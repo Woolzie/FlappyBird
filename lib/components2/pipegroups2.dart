@@ -1,14 +1,15 @@
 import 'dart:math';
+
 import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flappybird/components2/flappy2.dart';
+import 'package:flappybird/components2/pipe_position2.dart';
 import 'package:flappybird/componets/config.dart';
-import 'package:flappybird/componets/pipe_position.dart';
 import 'package:flappybird/game/assets.dart';
-import 'package:flappybird/game/flappy_bird.dart';
 
-class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame>{
-  PipeGroup();
+// I hope i gg one day so i can fix this garbage
+class PipeGroup2 extends PositionComponent with HasGameRef<Flappy2>{
+  PipeGroup2();
 
   final _random = Random();
 
@@ -17,11 +18,11 @@ class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame>{
     position.x = gameRef.size.x;
 
     final heightMinusGround = gameRef.size.y - Config.groundHeight;
-    final spacing = 7* gameRef.bird.size.y/2 ;//
+    final spacing = 7* gameRef.bird2.size.y/2 ;//
     final centerY = spacing + _random.nextDouble()*(heightMinusGround-spacing);
     addAll([
-      Pipe(pipePosition: PipePosition.top, height:centerY-spacing),
-      Pipe(pipePosition: PipePosition.bottom, height:heightMinusGround- (centerY))
+      Pipe2(pipePosition: PipePosition.top, height:centerY-spacing),
+      Pipe2(pipePosition: PipePosition.bottom, height:heightMinusGround- (centerY))
     ]);
   }
 
@@ -40,8 +41,9 @@ class PipeGroup extends PositionComponent with HasGameRef<FlappyBirdGame>{
   }
 
   // make height dynamic later
+  // scoring system not needed ig
   void updateScore(){
-    gameRef.bird.score += 1;
+    gameRef.bird2.score += 1;
     FlameAudio.play(Assets.point);
   }
 
